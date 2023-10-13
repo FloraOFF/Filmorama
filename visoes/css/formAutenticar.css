@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    height: 100%;
+}
+
+body, form {
+    display: flex;
+    align-items: center;
+    background-color: rgb(34, 60, 63);
+}
+
+form {
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15em;
+    background-color: rgb(66, 83, 83);
+    border-radius: 4px;
+}
+
+form div#formAut {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(86, 124, 124);
+    border-radius: 4px;
+}
+
+form div#formAut label, input {
+    padding: 2%;
+}
+
+form div#formAut button {
+    margin: 1em;
+}
