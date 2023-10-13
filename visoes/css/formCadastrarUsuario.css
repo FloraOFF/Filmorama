@@ -9,6 +9,7 @@ html, body {
     height: 100%;
 }
 
+
 body, form {
     display: flex;
     align-items: center;
@@ -20,13 +21,13 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20em;
+    width: 30em;
     background-color: rgb(66, 83, 83);
     border-radius: 4px;
 }
 
-form div#formAut {
-    width: 20em;
+form div#formCads {
+    width: 50em;
     margin: 2em;
     display: flex;
     flex-direction: column;
@@ -34,18 +35,18 @@ form div#formAut {
     border-radius: 4px;
 }
 
-form div#formAut label, input {
+form div#formCads label, input {
     padding: 2%;
 }
 
-form div#formAut input {
+form div#formCads input {
     margin: 4px;
 }
 
-form div#formAut button {
+form div#formCads button {
     margin: 1em;
 }
 
-form div#formAut h2 {
+form div#formCads h2 {
     text-align: center;
 }
