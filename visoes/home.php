@@ -19,8 +19,13 @@
 <body>
     <h1>Bem vindo 
         <?php  $usuario = $_SESSION['usuario']; 
-                echo $usuario->getEmail();
+            echo $usuario->getEmail();
         ?>
+
+        <div id="actionsUser">
+            <h3>O que deseja fazer?</h3>
+            <a href="formCadastrarFilme.html">Cadastrar Filme</a>
+        </div>
     </h1>
 </body>
 </html>

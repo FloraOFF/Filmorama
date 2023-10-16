@@ -14,11 +14,11 @@
        // var_dump($listaUsuarios);
         foreach($listaUsuarios as $usuario){
             echo  "id: " . $usuario->getId();
-            echo  "nome: " .  $usuario->getNome(); 
-            echo  "email: " . $usuario->getEmail();
-            echo  "telefone: " . $usuario->getTelefone();
-            echo  "senha:" . $usuario->getSenha();      
-            echo "<br>";
+            echo  "<br>nome: " .  $usuario->getNome(); 
+            echo  "<br>email: " . $usuario->getEmail();
+            echo  "<br>telefone: " . $usuario->getTelefone();
+            echo  "<br>senha: " . $usuario->getSenha();      
+            echo "<br><br>";
         }
 
 

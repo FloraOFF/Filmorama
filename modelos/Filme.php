@@ -118,5 +118,33 @@
             //return $this;
         }
 
+        public function buscarTodos($conn){
+        
+            $sql = "SELECT * FROM Filmes";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+    
+            $listaFilmes = array();
+            while ($filmeDoBanco = $stmt->fetch(PDO::FETCH_OBJ)){ //está pegando a linha e transformando em um objeto
+                $filme = new Filme();
+                $filme->setId($filmeDoBanco->id);
+                $filme->setTitulo($filmeDoBanco->titulo);
+                $filme->setDataEstreia($filmeDoBanco->dataEstreia;);
+                $filme->setGenero($filmeDoBanco->genero;);
+                $filme->setClassificacao($filmeDoBanco->classificacao;);
+                $filme->setDuracao($filmeDoBanco->duracao;);
+                $filme->setElenco($filmeDoBanco->elenco;);
+                $filme->setSinopse($filmeDoBanco->sinopse;);
+                $filme->setAvaliacao($filmeDoBanco->avaliacao;);
+                $filme->setProdutora($filmeDoBanco->produtora;);
+                $filme->setPaisOrigem($filmeDoBanco->paisOrigem;);
+                $filme->setIdioma($filmeDoBanco->idioma;);
+                $filme->setTelefone($filmeDoBanco->telefone);
+    
+                array_push($listaFilmes,$filme);
+            }
+            return  $listaFilmes;
+       }
+
     }
 ?>
