@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/formCadastrarUsuario.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="../controladores/rota.php?acao=salvarFilme" method="POST">
+        <div id="formCads">
+            <h2>Cadastro</h2>
+            <label>Titulo:</label><input type="text" name="titulo">
+            <label>Data Estreia:</label><input type="text" name="dataEstreia">
+            <label>Genero:</label><input type="text" name="genero">
+            <label>Classificação:</label><input type="password" name="classificacao">
+            <label>Duração:</label><input type="text" name="duracao">
+            <label>Elenco:</label><input type="text" name="elenco">
+            <label>Sinopse:</label><input type="text" name="sinopse">
+            <label>Avaliação:</label><input type="text" name="avaliacao">
+            <label>Produtora:</label><input type="text" name="produtora">
+            <label>Pais Origem:</label><input type="text" name="paisOrigem">
+            <label>Idioma:</label><input type="text" name="idioma">
+
+            <button>Salvar</button>
+        </div>
+    </form>
+
+</body>
+</html>

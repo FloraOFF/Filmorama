@@ -52,6 +52,40 @@
                     echo $erro->getMessage();
                     header('Location: ../visoes/formAutenticar.html'); 
                 } 
+
+            break;
+        case "salvarFilme":
+                $titulo = $_POST['titulo'];
+                $dataEstreia = $_POST['dataEstreia'];
+                $genero = $_POST['genero'];
+                $classificacao = $_POST['classificacao'];
+                $duracao = $_POST['duracao'];
+                $elenco = $_POST['elenco'];
+                $sinopse = $_POST['sinopse'];
+                $avaliacao = $_POST['avaliacao'];
+                $produtora = $_POST['produtora'];
+                $paisOrigem = $_POST['paisOrigem'];
+                $idioma = $_POST['idioma'];
+        
+                $conexao = new Conexao();
+                $conn = $conexao->getConexao();
+               
+                $filme = new Filme();
+                $filme->setTitulo($titulo);
+                $filme->setDataEstreia($dataEstreia);
+                $filme->setGenero($genero);
+                $filme->setClassficacao($classificacao);
+                $filme->setDuracao($duracao);
+                $filme->setElenco($elenco);
+                $filme->setSinopse($sinopse);
+                $filme->setAvaliacao($avaliacao);
+                $filme->setProdutora($produtora);
+                $filme->setPaisOrigem($paisOrigem);
+                $filme->setIdioma($idioma);
+              
+                $filmeControlador = new FilmeControlador();
+                $filmeControlador->salvar($filme);
+        
             break;
     }
 

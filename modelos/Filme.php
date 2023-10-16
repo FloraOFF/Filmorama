@@ -97,5 +97,26 @@
             $this->idioma = $idioma;
         }
 
+        public function salvar($conn){
+
+            $sql = "INSERT INTO Filmes (titulo, dataEstreia, genero, classificacao, duracao, elenco, sinopse, avaliacao, produtora, paisOrigem, idioma)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(1, $this->titulo);
+            $stmt->bindParam(2, $this->dataEstreia);
+            $stmt->bindParam(3, $this->genero);
+            $stmt->bindParam(4, $this->classficacao);
+            $stmt->bindParam(5, $this->duracao);
+            $stmt->bindParam(6, $this->elenco);
+            $stmt->bindParam(7, $this->sinopse);
+            $stmt->bindParam(8, $this->avaliacao);
+            $stmt->bindParam(9, $this->produtora);
+            $stmt->bindParam(10, $this->paisOrigem);
+            $stmt->bindParam(11, $this->idioma);
+            $stmt->execute();
+            $this->id = $conn->lastInsertId();
+            //return $this;
+        }
+
     }
 ?>
