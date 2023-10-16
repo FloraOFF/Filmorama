@@ -105,7 +105,7 @@
             $stmt->bindParam(1, $this->titulo);
             $stmt->bindParam(2, $this->dataEstreia);
             $stmt->bindParam(3, $this->genero);
-            $stmt->bindParam(4, $this->classficacao);
+            $stmt->bindParam(4, $this->classificacao);
             $stmt->bindParam(5, $this->duracao);
             $stmt->bindParam(6, $this->elenco);
             $stmt->bindParam(7, $this->sinopse);
@@ -129,17 +129,16 @@
                 $filme = new Filme();
                 $filme->setId($filmeDoBanco->id);
                 $filme->setTitulo($filmeDoBanco->titulo);
-                $filme->setDataEstreia($filmeDoBanco->dataEstreia;);
-                $filme->setGenero($filmeDoBanco->genero;);
-                $filme->setClassificacao($filmeDoBanco->classificacao;);
-                $filme->setDuracao($filmeDoBanco->duracao;);
-                $filme->setElenco($filmeDoBanco->elenco;);
-                $filme->setSinopse($filmeDoBanco->sinopse;);
-                $filme->setAvaliacao($filmeDoBanco->avaliacao;);
-                $filme->setProdutora($filmeDoBanco->produtora;);
-                $filme->setPaisOrigem($filmeDoBanco->paisOrigem;);
-                $filme->setIdioma($filmeDoBanco->idioma;);
-                $filme->setTelefone($filmeDoBanco->telefone);
+                $filme->setDataEstreia($filmeDoBanco->dataEstreia);
+                $filme->setGenero($filmeDoBanco->genero);
+                $filme->setClassificacao($filmeDoBanco->classificacao);
+                $filme->setDuracao($filmeDoBanco->duracao);
+                $filme->setElenco($filmeDoBanco->elenco);
+                $filme->setSinopse($filmeDoBanco->sinopse);
+                $filme->setAvaliacao($filmeDoBanco->avaliacao);
+                $filme->setProdutora($filmeDoBanco->produtora);
+                $filme->setPaisOrigem($filmeDoBanco->paisOrigem);
+                $filme->setIdioma($filmeDoBanco->idioma);
     
                 array_push($listaFilmes,$filme);
             }

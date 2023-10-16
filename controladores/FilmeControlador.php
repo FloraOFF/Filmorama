@@ -4,7 +4,7 @@
 
     class FilmeControlador{
 
-        public function salvar($Filme){
+        public function salvar($filme){
 
             try {
         

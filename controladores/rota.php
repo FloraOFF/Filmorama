@@ -2,7 +2,9 @@
 
     require_once "../modelos/Usuario.php";
     require_once "../modelos/Endereco.php";
+    require_once "../modelos/Filme.php";
     require_once "UsuarioControlador.php";
+    require_once "FilmeControlador.php";
 
     $acao = $_GET['acao'];
 
@@ -71,7 +73,7 @@
                 $filme->setTitulo($titulo);
                 $filme->setDataEstreia($dataEstreia);
                 $filme->setGenero($genero);
-                $filme->setClassficacao($classificacao);
+                $filme->setClassificacao($classificacao);
                 $filme->setDuracao($duracao);
                 $filme->setElenco($elenco);
                 $filme->setSinopse($sinopse);
@@ -79,7 +81,7 @@
                 $filme->setProdutora($produtora);
                 $filme->setPaisOrigem($paisOrigem);
                 $filme->setIdioma($idioma);
-              
+
                 $filmeControlador = new FilmeControlador();
                 $filmeControlador->salvar($filme);
         

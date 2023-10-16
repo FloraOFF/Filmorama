@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Set-2023 às 22:16
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.2.0
+-- Tempo de geração: 16/10/2023 às 05:45
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `ifacanas`
+-- Banco de dados: `Filmorama`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `anuncios`
+-- Estrutura para tabela `anuncios`
 --
 
 CREATE TABLE `anuncios` (
@@ -41,7 +41,7 @@ CREATE TABLE `anuncios` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categorias`
+-- Estrutura para tabela `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -52,7 +52,7 @@ CREATE TABLE `categorias` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `enderecos`
+-- Estrutura para tabela `enderecos`
 --
 
 CREATE TABLE `enderecos` (
@@ -65,17 +65,47 @@ CREATE TABLE `enderecos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `enderecos`
+-- Despejando dados para a tabela `enderecos`
 --
 
 INSERT INTO `enderecos` (`id`, `rua`, `numero`, `cep`, `cidade`, `id_usuario`) VALUES
 (3, 'X', 50, '65845654', 'Rio', 3),
-(4, 'Y', 50, '56564', 'K', 4);
+(4, 'Y', 50, '56564', 'K', 4),
+(5, 'sfdgsdgs', 0, 'Rua Cedr', 'Rio Branco', 5),
+(6, 'sfdgsdgs', 465, 'Rua Cedr', 'sdfvvv', 6);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fotos`
+-- Estrutura para tabela `filmes`
+--
+
+CREATE TABLE `filmes` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `dataEstreia` date NOT NULL,
+  `genero` varchar(50) DEFAULT NULL,
+  `classificacao` varchar(10) DEFAULT NULL,
+  `duracao` int(11) DEFAULT NULL,
+  `elenco` varchar(255) DEFAULT NULL,
+  `sinopse` varchar(255) DEFAULT NULL,
+  `avaliacao` float DEFAULT NULL,
+  `produtora` varchar(255) DEFAULT NULL,
+  `paisOrigem` varchar(50) DEFAULT NULL,
+  `idioma` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `filmes`
+--
+
+INSERT INTO `filmes` (`id`, `titulo`, `dataEstreia`, `genero`, `classificacao`, `duracao`, `elenco`, `sinopse`, `avaliacao`, `produtora`, `paisOrigem`, `idioma`) VALUES
+(4, 'The Batman', '2022-03-03', 'Drama/Ação', '14 anos', 2, 'Robert Pattinson, Zoë Kravitz, Paul Dano, Colin Farrell, Jeffrey Wright, Andy Serkis', 'Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.', 3.9, 'DC e Warner Bros.', 'Reino Unido', 'Inglês');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `fotos`
 --
 
 CREATE TABLE `fotos` (
@@ -89,7 +119,7 @@ CREATE TABLE `fotos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -102,19 +132,21 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `telefone`, `status`) VALUES
 (3, 'Carlos', 'caca@gmail.com', '$2y$10$6xK/0U1Jaas2RLvfObtLOO0X1kyMMaCOTeEvG2y/eKSjX1jvX/432', '123456', 1),
-(4, 'Paulo', 'papa@gmail.com', '$2y$10$en.qOtrEQ4Uy9HAa.XpYgejB7X1FWNF2GsPyM3wHIpZhMPXJ9l8rW', '45764', 1);
+(4, 'Paulo', 'papa@gmail.com', '$2y$10$en.qOtrEQ4Uy9HAa.XpYgejB7X1FWNF2GsPyM3wHIpZhMPXJ9l8rW', '45764', 1),
+(5, 'Flora', 'floraoliveirafranca@gmail.com', '$2y$10$X6W/jjkfwn799txW6Mchpe90Jn7cY3R9riIKiUJEtIKpbjoHEbgn6', '(68) 98205-4704', 1),
+(6, 'Atumalaca', 'atumalaca@gmail.com', '$2y$10$BFJ1PyXu.LNDhV4a3O5xgOOknYQxEmTu0rT.iKiv0HFzDgdwO7TC.', '(68) 98105-2583', 1);
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `anuncios`
+-- Índices de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
   ADD PRIMARY KEY (`id`),
@@ -122,33 +154,39 @@ ALTER TABLE `anuncios`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Índices para tabela `categorias`
+-- Índices de tabela `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `enderecos`
+-- Índices de tabela `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Índices para tabela `fotos`
+-- Índices de tabela `filmes`
+--
+ALTER TABLE `filmes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `fotos`
 --
 ALTER TABLE `fotos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_anuncio` (`id_anuncio`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -167,6 +205,12 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de tabela `enderecos`
 --
 ALTER TABLE `enderecos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `filmes`
+--
+ALTER TABLE `filmes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -179,27 +223,27 @@ ALTER TABLE `fotos`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `anuncios`
+-- Restrições para tabelas `anuncios`
 --
 ALTER TABLE `anuncios`
   ADD CONSTRAINT `anuncios_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `anuncios_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `enderecos`
+-- Restrições para tabelas `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD CONSTRAINT `enderecos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `fotos`
+-- Restrições para tabelas `fotos`
 --
 ALTER TABLE `fotos`
   ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`id_anuncio`) REFERENCES `anuncios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
