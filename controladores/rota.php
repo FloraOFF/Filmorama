@@ -66,9 +66,6 @@
                 $produtora = $_POST['produtora'];
                 $paisOrigem = $_POST['paisOrigem'];
                 $idioma = $_POST['idioma'];
-        
-                $conexao = new Conexao();
-                $conn = $conexao->getConexao();
                
                 $filme = new Filme();
                 $filme->setTitulo($titulo);

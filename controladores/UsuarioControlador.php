@@ -5,6 +5,8 @@
 
     class UsuarioControlador{
 
+        private $conn;
+
         public function salvar($usuario){
 
             try {
@@ -29,7 +31,9 @@
         }
 
         public function autenticar($usuario){
-
+            $conexao = new Conexao();
+            $conn = $conexao->getConexao();  
+            
             try{
                 $usuario = $usuario->autenticar($conn);
                 return $usuario;        
