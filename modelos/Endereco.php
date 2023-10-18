@@ -18,7 +18,7 @@ class Endereco{
 
     public function salvar($conn){
 
-        $sql = "INSERT INTO Enderecos (rua, numero, cep,cidade,id_usuario)
+        $sql = "INSERT INTO enderecos (rua, numero, cep,cidade,id_usuario)
         VALUES (?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->rua);

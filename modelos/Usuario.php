@@ -53,7 +53,7 @@ class Usuario {
     } 
    
     public function autenticar($conn){
-        $sql = "SELECT * FROM Usuarios WHERE email = ?";
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->email);
         $stmt->execute();
@@ -72,7 +72,7 @@ class Usuario {
 
     public function salvar($conn){
 
-        $sql = "INSERT INTO Usuarios (nome, telefone, email,senha)
+        $sql = "INSERT INTO usuarios (nome, telefone, email,senha)
         VALUES (?, ?, ?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->nome);
@@ -87,7 +87,7 @@ class Usuario {
 
     public function buscarTodos($conn){
         
-        $sql = "SELECT * FROM Usuarios";
+        $sql = "SELECT * FROM usuarios";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 

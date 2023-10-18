@@ -99,7 +99,7 @@
 
         public function salvar($conn){
 
-            $sql = "INSERT INTO Filmes (titulo, dataEstreia, genero, classificacao, duracao, elenco, sinopse, avaliacao, produtora, paisOrigem, idioma)
+            $sql = "INSERT INTO filmes (titulo, dataEstreia, genero, classificacao, duracao, elenco, sinopse, avaliacao, produtora, paisOrigem, idioma)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(1, $this->titulo);
@@ -120,7 +120,7 @@
 
         public function buscarTodos($conn){
         
-            $sql = "SELECT * FROM Filmes";
+            $sql = "SELECT * FROM filmes";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
     
