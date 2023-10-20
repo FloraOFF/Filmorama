@@ -1,8 +1,24 @@
+nav{
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    display: inline-flex;
+    padding: 6vh;
+    width: 100%;
+}
+
+#navOptions{
+    margin: auto;
+}
+
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
+    background-repeat: repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/netflix-library.webp);
+
 }
 
 html, body {
@@ -11,42 +27,72 @@ html, body {
 
 
 body, form {
-    display: flex;
-    align-items: center;
-    background-color: rgb(34, 60, 63);
+        display: flex;
+        align-items: center;
 }
 
 form {
-    margin: 1em;
+    margin: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30em;
-    background-color: rgb(66, 83, 83);
-    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
 }
 
 form div#formCads {
     width: 50em;
     margin: 2em;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    background-color: rgb(86, 124, 124);
+}
+
+
+
+form div#formCads label, input {
+    color: white;
+    padding: 2%;
     border-radius: 4px;
 }
 
-form div#formCads label, input {
-    padding: 2%;
-}
-
 form div#formCads input {
-    margin: 4px;
+    margin: 10px;
+    color: white;
 }
 
 form div#formCads button {
-    margin: 1em;
+    margin: 1.5em;
+    height: 80px;
+    background-color: brown;
+    color: white;
+    border-radius: 10px;
 }
 
 form div#formCads h2 {
+    color: white;
     text-align: center;
+}
+
+#logo{
+    width: 200px;
+}
+
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+button{
+    color: aliceblue;
+    border: 1px;
+    font-size: 16px;
+    padding: 9px 16px;
+    background-color: #cc2229;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;    
+}
+button:hover{
+    transition: all 0.5s ease;
+    background-color: rgb(61, 10, 10);
 }
