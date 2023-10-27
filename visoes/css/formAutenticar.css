@@ -1,14 +1,12 @@
 
 nav{
     background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    display: inline-flex;
-    padding: 6vh;
+    display: flex;
+    padding: 6vh 0;
     width: 100%;
+    justify-content: space-between;
 }
 
-#navOptions{
-    margin: auto;
-}
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -59,8 +57,15 @@ form div#formAut button {
     margin: 1em;
 }
 
-form div#formAut h2 {
+form div#formAut h2, h3 {
     text-align: center;
+}
+
+form div#formAut a{
+    text-align: center;
+    background-color: #a73422;
+    padding: 0.5em;
+    border-radius: 0.5em;
 }
 
 #logo{

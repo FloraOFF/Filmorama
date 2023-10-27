@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/formAutenticar.css">
-    <title>Document</title>
+    <title>Autenticar</title>
 </head>
-<nav>
-    <img src="./img/Filmorama.png" alt="avatar" width="250px">
-    <div id="navOptions">
-        <button id="navButton"><a href="visoes/formAutenticar.html">Autenticar</a></button>
-        <button id="navButton"><a href="visoes/formCadastrarUsuario.html">Cadastrar Usuário</a></button>
-        <button id="navButton"><a href="visoes/mostrarUsuarios.php">Mostrar Usuários</a></button>
-        <button id="navButton"><a href="visoes/mostrarFilmes.php">Mostrar Filmes</a></button>
-    </div>
-</nav>
-
 <body>
+    <nav>
+        <a href="./index.html">
+            <img src="./img/Filmorama.png" alt="avatar" width="250px">
+        </a>
+        <div id="navOptions">
+            <button id="navButton"><a href="visoes/formAutenticar.html">Autenticar</a></button>
+            <!--<button id="navButton"><a href="visoes/formCadastrarUsuario.html">Cadastrar Usuário</a></button>-->
+            <button id="navButton"><a href="visoes/mostrarUsuarios.php">Mostrar Usuários</a></button>
+            <button id="navButton"><a href="visoes/mostrarFilmes.php">Mostrar Filmes</a></button>
+        </div>
+    </nav>
 
     <form action="../controladores/rota.php?acao=autenticar" method="POST">
         <div id="formAut">
@@ -25,6 +26,8 @@
             <label>E-mail:</label><input type="text" name="email">
             <label>Senha:</label><input type="password" name="senha">
             <button>OK</button>
+            <h3>Ainda não possui usuário?</h3>
+            <a href="./formCadastrarUsuario.html">Cadastrar usuário</a>
         </div>
         
     </form>

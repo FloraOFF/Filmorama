@@ -1,13 +1,10 @@
 
 nav{
     background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-    display: inline-flex;
-    padding: 6vh;
-    
-}
-
-#navOptions{
-    margin: auto;
+    display: flex;
+    padding: 6vh 0;
+    width: 100%;
+    justify-content: space-between;
 }
 
 body {
