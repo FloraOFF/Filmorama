@@ -21,29 +21,6 @@ html, body {
     height: 100%;
 }
 
-body div#actions {
-    background-color: rgb(108, 141, 135);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin: 10px 25em 10px;
-    border-radius: 4px;
-}
-
-body div#actions a {
-    border-radius: 4px;
-    margin-bottom: 8px;
-    padding: 2%;
-    text-decoration: none;
-    background-color:rgb(86, 192, 197);
-    color: rgb(56, 55, 55);
-}
-
-body div#actions img{
-    padding: 2%;
-}
-
 #intro{
     text-align: center;
     margin: auto;
