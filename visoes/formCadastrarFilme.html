@@ -7,20 +7,18 @@
     <link rel="stylesheet" href="./css/formCadastrarUsuario.css">
     <title>Document</title>
 </head>
-
-<nav>
-    <img src="./img/Filmorama.png" alt="avatar" width="250px">
-    <div id="navOptions">
-        <button id="navButton"><a href="visoes/formAutenticar.html">Autenticar</a></button>
-        <!--<button id="navButton"><a href="visoes/formCadastrarUsuario.html">Cadastrar Usuário</a></button>-->
-        <button id="navButton"><a href="visoes/mostrarUsuarios.php">Mostrar Usuários</a></button>
-        <button id="navButton"><a href="visoes/mostrarFilmes.php">Mostrar Filmes</a></button>
-    </div>
-</nav>
-
-
-
 <body>
+    <nav>
+        <a href="../index.html">
+            <img src="./img/Filmorama.png" alt="avatar" width="250px">
+        </a>
+        <div id="navOptions">
+            <button id="navButton"><a href="visoes/formAutenticar.html">Autenticar</a></button>
+            <!--<button id="navButton"><a href="visoes/formCadastrarUsuario.html">Cadastrar Usuário</a></button>-->
+            <button id="navButton"><a href="visoes/mostrarUsuarios.php">Mostrar Usuários</a></button>
+            <button id="navButton"><a href="visoes/mostrarFilmes.php">Mostrar Filmes</a></button>
+        </div>
+    </nav>
     
     
     <form action="../controladores/rota.php?acao=salvarFilme" method="POST">
@@ -28,8 +26,6 @@
         <div id="formCads">
 
             <h2>Cadastro Filme</h2>
-
-           
 
             <label>Titulo:</label><input type="text" name="titulo">
             <label>Data Estreia:</label><input type="text" name="dataEstreia">
