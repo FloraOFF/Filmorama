@@ -30,7 +30,7 @@
 
                $usuarioControlador = new UsuarioControlador();
                $usuarioControlador->salvar($usuario);
-               //header('Location: salvarUsuario.php'); 
+               header('../visoes/mostrarUsuarios.php'); 
             break;
         case "autenticar":
                 $email = $_POST['email'];
@@ -84,7 +84,7 @@
 
                 $filmeControlador = new FilmeControlador();
                 $filmeControlador->salvar($filme);
-        
+                header('Location: ../visoes/mostrarFilmes.php'); 
             break;
     }
 
