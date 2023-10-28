@@ -3,6 +3,7 @@
     require_once "../modelos/Filme.php";
 
     class FilmeControlador{
+        private filme;
 
         public function salvar($filme){
 
@@ -18,6 +19,15 @@
                 $conn->rollback();
             }
         
+        }
+
+        public function buscarTodos() {
+            filme = new Filme();
+            $filmes = filme->buscarTodos();
+            
+            header('Content-Type: application/json');
+
+            echo json_encode($filmes);
         }
     }
 
