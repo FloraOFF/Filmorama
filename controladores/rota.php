@@ -87,15 +87,13 @@
                 header('Location: ../visoes/mostrarFilmes.php'); 
             break;
         case "mostrarFilmes": 
-                $filme = new Filme();
+                $filme = new FilmeControlador();
                 $filmes = $filme->buscarTodos();
 
-                header('Content-Type: application/json');
-                echo json_encode($resultados);
+                var_dump($filmes);
+                //header('Content-Type: application/json');
+                //echo json_encode($filmes);
 
             break;
     }   
-
-  
-
 ?>

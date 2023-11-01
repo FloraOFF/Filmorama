@@ -3,12 +3,12 @@
     require_once "../modelos/Filme.php";
 
     class FilmeControlador{
-        private filme;
+
+        private $filme;
 
         public function salvar($filme){
 
             try {
-        
                 $conexao = new Conexao();
                 $conn = $conexao->getConexao();               
                 $filme->salvar($conn);
@@ -22,12 +22,11 @@
         }
 
         public function buscarTodos() {
-            filme = new Filme();
-            $filmes = filme->buscarTodos();
-            
-            header('Content-Type: application/json');
-
-            echo json_encode($filmes);
+            $conexao = new Conexao();
+            $conn = $conexao->getConexao();               
+        
+            $filme = new Filme();
+            return $filme->buscarTodos($conn);
         }
     }
 
