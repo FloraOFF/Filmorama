@@ -86,7 +86,15 @@
                 $filmeControlador->salvar($filme);
                 header('Location: ../visoes/mostrarFilmes.php'); 
             break;
-    }
+        case "mostrarFilmes": 
+                $filme = new Filme();
+                $filmes = $filme->buscarTodos();
+
+                header('Content-Type: application/json');
+                echo json_encode($resultados);
+
+            break;
+    }   
 
   
 
