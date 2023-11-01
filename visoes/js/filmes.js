@@ -1,5 +1,5 @@
 const filmes = () => {
-    fetch('../../controladores/FilmeControlador.php')
+    fetch('../../controladores/rota.php?acao=mostrarFilmes')
     .then(response => response.json())
     .then(filmes => {
         filmes.forEach(filme => {
