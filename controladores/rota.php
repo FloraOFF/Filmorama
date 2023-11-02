@@ -90,9 +90,13 @@
                 $filme = new FilmeControlador();
                 $filmes = $filme->buscarTodos();
 
-                var_dump($filmes);
-                //header('Content-Type: application/json');
-                //echo json_encode($filmes);
+                while ($r = mysql_fetch_assoc($filmes)) {
+                    $resultFilmes[] = utf8_decode($r);
+                }
+
+                //var_dump($filmes);
+                header('Content-Type: application/json');
+                echo json_encode($resultFilmes, JSON_UNESCAPED_UNICODE);
 
             break;
     }   
