@@ -92,7 +92,7 @@
 
                 //var_dump($filmes);
                 header('Content-Type: application/json');
-                echo json_encode($filmes);
+                echo json_encode($filmes,JSON_UNESCAPED_UNICODE);
 
             break;
     }   
