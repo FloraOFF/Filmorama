@@ -1,7 +1,6 @@
 <?php
 
     require_once "../modelos/Usuario.php";
-    require_once "../modelos/Endereco.php";
     require_once "../modelos/Filme.php";
     require_once "UsuarioControlador.php";
     require_once "FilmeControlador.php";
@@ -14,19 +13,12 @@
                 $telefone = $_POST['telefone'];
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
-                $rua = $_POST['rua'];
-                $numero = $_POST['numero'];
-                $cep = $_POST['cep'];
-                $cidade = $_POST['cidade'];
 
                 $usuario = new Usuario();
                 $usuario->setNome($nome);
                 $usuario->setEmail($email);
                 $usuario->setSenha($senha);
                 $usuario->setTelefone($telefone);
-
-                $endereco = new Endereco($rua,$numero,$cep,$cidade);
-                $usuario->setEndereco($endereco);
 
                $usuarioControlador = new UsuarioControlador();
                $usuarioControlador->salvar($usuario);

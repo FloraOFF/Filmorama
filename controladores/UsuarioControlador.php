@@ -1,7 +1,6 @@
 <?php
     require_once "../conexao/Conexao.php";
     require_once "../modelos/Usuario.php";
-    require_once "../modelos/Endereco.php";
 
     class UsuarioControlador{
 
@@ -15,10 +14,6 @@
                 $conn = $conexao->getConexao();               
                 $conn->beginTransaction();
                 $usuario->salvar($conn);
-
-                $endereco = $usuario->getEndereco();
-                $endereco->setIdUsuario($usuario->getId());
-                $endereco->salvar($conn);
         
                 $conn->commit();
         

@@ -8,7 +8,6 @@ class Usuario {
     private $telefone;
     private $email;
     private $senha;
-    private $endereco;
 
     public function getId(){
         return $this->id;
@@ -44,13 +43,6 @@ class Usuario {
     public function setSenha($senha){
         $this->senha = $senha;
     }
-
-    public function getEndereco(){
-        return $this->endereco;
-    }
-    public function setEndereco($endereco){
-        $this->endereco = $endereco;
-    } 
    
     public function autenticar($conn){
         $sql = "SELECT * FROM usuarios WHERE email = ?";
