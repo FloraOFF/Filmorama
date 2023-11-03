@@ -128,17 +128,17 @@
             while ($filmeDoBanco = $stmt->fetch(PDO::FETCH_OBJ)){ //está pegando a linha e transformando em um objeto
                 $filme = new Filme();
                 $filme->setId($filmeDoBanco->id);
-                $filme->setTitulo(utf8_encode($filmeDoBanco->titulo));
-                $filme->setDataEstreia(utf8_encode($filmeDoBanco->dataEstreia));
-                $filme->setGenero(utf8_encode($filmeDoBanco->genero));
-                $filme->setClassificacao(utf8_encode($filmeDoBanco->classificacao));
-                $filme->setDuracao(utf8_encode($filmeDoBanco->duracao));
-                $filme->setElenco(utf8_encode($filmeDoBanco->elenco));
-                $filme->setSinopse(utf8_encode($filmeDoBanco->sinopse));
-                $filme->setAvaliacao(utf8_encode($filmeDoBanco->avaliacao));
-                $filme->setProdutora(utf8_encode($filmeDoBanco->produtora));
-                $filme->setPaisOrigem(utf8_encode($filmeDoBanco->paisOrigem));
-                $filme->setIdioma(utf8_encode($filmeDoBanco->idioma));
+                $filme->setTitulo($filmeDoBanco->titulo);
+                $filme->setDataEstreia($filmeDoBanco->dataEstreia);
+                $filme->setGenero($filmeDoBanco->genero);
+                $filme->setClassificacao($filmeDoBanco->classificacao);
+                $filme->setDuracao($filmeDoBanco->duracao);
+                $filme->setElenco($filmeDoBanco->elenco);
+                $filme->setSinopse($filmeDoBanco->sinopse);
+                $filme->setAvaliacao($filmeDoBanco->avaliacao);
+                $filme->setProdutora($filmeDoBanco->produtora);
+                $filme->setPaisOrigem($filmeDoBanco->paisOrigem);
+                $filme->setIdioma($filmeDoBanco->idioma);
     
                 array_push($listaFilmes,$filme);
             }
