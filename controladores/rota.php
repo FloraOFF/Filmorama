@@ -81,7 +81,6 @@
         case "mostrarFilmes": 
                 $filmeController = new FilmeControlador();
                 $filmes = $filmeController->buscarTodos();
-
                 //var_dump($filmes);
                 header('Content-Type: application/json');
                 echo json_encode($filmes, JSON_UNESCAPED_UNICODE);
