@@ -81,6 +81,22 @@
         case "mostrarFilmes": 
                 $filmeController = new FilmeControlador();
                 $filmes = $filmeController->buscarTodos();
+                $filme = new Filme();
+
+                $filme->setId(1);
+                $filme->setTitulo("teste");
+                $filme->setDataEstreia("2003/12/17");
+                $filme->setGenero("teste");
+                $filme->setClassificacao(14);
+                $filme->setDuracao(2);
+                $filme->setElenco("teste blabla");
+                $filme->setSinopse("teste teste");
+                $filme->setAvaliacao(3.4);
+                $filme->setProdutora("teste");
+                $filme->setPaisOrigem("Italia");
+                $filme->setIdioma("Italiano");
+                //var_dump($filme);
+                //echo "<br>";
                 //var_dump($filmes);
                 header('Content-Type: application/json');
                 echo json_encode($filmes, JSON_UNESCAPED_UNICODE);

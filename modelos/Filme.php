@@ -1,5 +1,5 @@
 <?php
-    class Filme {
+    class Filme implements JsonSerializable{
         private $id;
         private $titulo;
         private $dataEstreia;
@@ -145,5 +145,24 @@
             return  $listaFilmes;
        }
 
+       public function jsonSerialize() {
+            return [
+                'id' => $this->id,
+                'titulo' => $this->titulo,
+                'dataEstreia' => $this->dataEstreia,
+                'genero' => $this->genero,
+                'classificacao' => $this->classificacao,
+                'duracao' => $this->duracao,
+                'elenco' => $this->elenco,
+                'sinopse' => $this->sinopse,
+                'avaliacao' => $this->avaliacao,
+                'produtora' => $this->produtora,
+                'paisOrigem' => $this->paisOrigem,
+                'idioma' => $this->idioma
+            ];
+       }
+
     }
+
+    //echo json_encode(new Filme());
 ?>
