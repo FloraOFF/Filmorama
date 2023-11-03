@@ -12,10 +12,7 @@
         
                 $conexao = new Conexao();
                 $conn = $conexao->getConexao();               
-                $conn->beginTransaction();
                 $usuario->salvar($conn);
-        
-                $conn->commit();
         
                 echo "New record created successfully";
             } catch(PDOException $e) {

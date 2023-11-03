@@ -4,7 +4,7 @@
 
         private $servername = "localhost";
         private $username = "root";
-        private $password = "root";
+        private $password = "";
         private $dbname = "Filmorama";
 
         public function getConexao(){
