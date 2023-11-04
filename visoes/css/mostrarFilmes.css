@@ -22,58 +22,6 @@ html, body {
     height: 100%;
 }
 
-
-body, form {
-    display: flex;
-    align-items: center;
-}
-
-form {
-    margin: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30em;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-form div#formCads {
-    width: 50em;
-    margin: 2em;
-    display: inline-flex;
-    flex-direction: column;
-}
-
-
-
-form div#formCads label, input {
-    padding: 2%;
-    border-radius: 4px;
-}
-
-form div#formCads label {
-    color: white;
-}
-
-form div#formCads input {
-    margin: 10px;
-    color: black;
-}
-
-form div#formCads button {
-    margin: 1.5em;
-    height: 80px;
-    background-color: brown;
-    color: white;
-    border-radius: 10px;
-}
-
-form div#formCads h2 {
-    color: white;
-    text-align: center;
-}
-
 #logo{
     width: 200px;
 }
@@ -82,6 +30,7 @@ a{
     text-decoration: none;
     color: aliceblue;
 }
+
 button{
     color: aliceblue;
     border: 1px;
@@ -92,7 +41,21 @@ button{
     margin: 14px;
     cursor: pointer;    
 }
+
 button:hover{
     transition: all 0.5s ease;
     background-color: rgb(61, 10, 10);
+}
+
+div.mostrar {
+    background-color: rgba(240, 248, 255, 0.685);
+    color: black;
+    margin: 1em;
+    border-radius: 1em;
+    padding: 1em;
+    text-align: justify;
+}
+
+div.mostrar #sinopse {
+    line-height: 1.5;
 }
