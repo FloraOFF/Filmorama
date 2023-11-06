@@ -22,7 +22,7 @@
 
                $usuarioControlador = new UsuarioControlador();
                $usuarioControlador->salvar($usuario);
-               header('../visoes/mostrarUsuarios.php'); 
+               header('../visoes/mostrarUsuarios.html'); 
             break;
         case "autenticar":
                 $email = $_POST['email'];
@@ -81,7 +81,7 @@
         case "mostrarFilmes": 
                 $filmeController = new FilmeControlador();
                 $filmes = $filmeController->buscarTodos();
-                
+
                 //var_dump($filme);
                 //echo "<br>";
                 //var_dump($filmes);
