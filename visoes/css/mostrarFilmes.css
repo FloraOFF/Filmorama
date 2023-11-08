@@ -48,8 +48,8 @@ button:hover{
 }
 
 div.mostrar {
-    background-color: rgba(240, 248, 255, 0.685);
-    color: black;
+    background-image: linear-gradient(rgba(170, 45, 45, 0.959), rgba(151, 72, 72, 0.945));
+    color: rgb(0, 0, 0);
     margin: 1em;
     border-radius: 1em;
     padding: 1em;
@@ -58,4 +58,21 @@ div.mostrar {
 
 div.mostrar #sinopse {
     line-height: 1.5;
+}
+
+div.mostrar #editar, #deletar {
+    margin-right: 1em;
+    margin-top: 1.5em;
+    padding: 0.5em;
+    background-color: black;
+    border-radius: 0.5em;
+}
+
+div.mostrar #editar:hover, #deletar:hover {
+    transition: all 0.5s ease;
+    background-color: rgb(59, 53, 53)
+}
+
+div.mostrar div.config {
+    display: none;
 }

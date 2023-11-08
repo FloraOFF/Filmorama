@@ -13,16 +13,18 @@
                 $telefone = $_POST['telefone'];
                 $email = $_POST['email'];
                 $senha = $_POST['senha'];
+                $papel = "Comum";
 
                 $usuario = new Usuario();
                 $usuario->setNome($nome);
                 $usuario->setEmail($email);
                 $usuario->setSenha($senha);
                 $usuario->setTelefone($telefone);
+                $usuario->setPapel($papel);
 
                $usuarioControlador = new UsuarioControlador();
                $usuarioControlador->salvar($usuario);
-               header('../visoes/mostrarUsuarios.html'); 
+               header('Location: ../index.html'); 
             break;
         case "autenticar":
                 $email = $_POST['email'];

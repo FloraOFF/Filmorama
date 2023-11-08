@@ -8,6 +8,7 @@ class Usuario {
     private $telefone;
     private $email;
     private $senha;
+    private $papel;
 
     public function getId(){
         return $this->id;
@@ -43,6 +44,13 @@ class Usuario {
     public function setSenha($senha){
         $this->senha = $senha;
     }
+
+    public function getPapel(){
+        return $this->papel;
+    }
+    public function setPapel($papel){
+        $this->papel = $papel;
+    }
    
     public function autenticar($conn){
         $sql = "SELECT * FROM usuarios WHERE email = ?";
@@ -64,17 +72,17 @@ class Usuario {
 
     public function salvar($conn){
 
-        $sql = "INSERT INTO usuarios (nome, telefone, email,senha)
-        VALUES (?, ?, ?,?)";
+        $sql = "INSERT INTO usuarios (nome, telefone, email, senha, papel)
+        VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $this->nome);
         $stmt->bindParam(2, $this->telefone);
         $stmt->bindParam(3, $this->email);
         $hash = password_hash($this->senha,PASSWORD_DEFAULT);
         $stmt->bindParam(4, $hash);
+        $stmt->bindParam(5, $this->papel);
         $stmt->execute();
         $this->id = $conn->lastInsertId();
-        //return $this;
     }
 
     public function buscarTodos($conn){
@@ -91,6 +99,7 @@ class Usuario {
             $usuario->setEmail($usuarioDoBanco->email);
             $usuario->setSenha($usuarioDoBanco->senha);
             $usuario->setTelefone($usuarioDoBanco->telefone);
+            $usuario->setPapel($usuarioDoBanco->papel);
 
             array_push($listaUsuarios,$usuario);
         }

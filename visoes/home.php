@@ -18,7 +18,7 @@
 </head>
 <body>
     <h1>Bem vindo 
-        <?php  $usuario = $_SESSION['usuario']; 
+        <?php $usuario = $_SESSION['usuario']; 
             echo $usuario->getEmail();
         ?>
 

@@ -13,7 +13,11 @@ function mostrarFilmes (filme) {
     <p>Avaliação: ${filme.avaliacao}</p>
     <p>Produtora: ${filme.produtora}</p>
     <p>Pais de Origem: ${filme.paisOrigem}</p>
-    <p>Idioma: ${filme.idioma}</p>`
+    <p>Idioma: ${filme.idioma}</p>
+    <div class="config">
+        <a href="#" id="editar">Editar</a>
+        <a href="#" id="deletar">Deletar</a>
+    </div>`
 
     document.body.appendChild(divShow);
 }

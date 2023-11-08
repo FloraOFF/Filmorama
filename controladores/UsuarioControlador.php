@@ -17,7 +17,6 @@
                 echo "New record created successfully";
             } catch(PDOException $e) {
                 echo "<br>" . $e->getMessage();
-                $conn->rollback();
             }
         
         }
