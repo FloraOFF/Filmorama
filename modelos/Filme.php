@@ -145,7 +145,7 @@
             return  $listaFilmes;
        }
 
-       public function jsonSerialize() {
+        public function jsonSerialize() {
             return [
                 'id' => $this->id,
                 'titulo' => $this->titulo,
