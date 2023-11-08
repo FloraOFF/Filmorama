@@ -25,6 +25,7 @@
         <div id="actionsUser">
             <h3>O que deseja fazer?</h3>
             <a href="formCadastrarFilme.html">Cadastrar Filme</a>
+            <a href="mostrarFilmes.html">Mostrar Filmes</a>
         </div>
     </h1>
 </body>
