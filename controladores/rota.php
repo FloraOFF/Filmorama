@@ -91,5 +91,14 @@
                 echo json_encode($filmes, JSON_UNESCAPED_UNICODE);
 
             break;
+        case "User": 
+            session_start();
+            $usuario = new Usuario();
+            $usuario = $_SESSION['usuario'];
+
+            header('Content-Type: application/json');
+            echo json_encode($usuario);
+
+            break;
     }   
 ?>

@@ -64,6 +64,7 @@ require_once "../excecoes/AutenticarException.php";
                 $this->nome = $usuarioDoBanco->nome;
                 $this->telefone = $usuarioDoBanco->telefone;
                 $this->id = $usuarioDoBanco->id;
+                $this->papel = $usuarioDoBanco->papel;
                 return $this;
             }else{
                 throw new AutenticarException("Usuario ou senha errado");
@@ -102,17 +103,16 @@ require_once "../excecoes/AutenticarException.php";
                 $usuario->setPapel($usuarioDoBanco->papel);
 
                 array_push($listaUsuarios,$usuario);
+                var_dump($listaUsuarios);
             }
             return  $listaUsuarios;
     }
 
         public function jsonSerialize() {
             return [
-                'id' => $this->id,
                 'nome' => $this->nome,
-                'email' => $this->email,
-                'senha' => $this->senha,
                 'telefone' => $this->telefone,
+                'email' => $this->email,
                 'papel' => $this->papel
             ];
         }
