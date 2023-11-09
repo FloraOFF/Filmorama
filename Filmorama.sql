@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08/11/2023 às 06:17
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Tempo de geração: 10-Nov-2023 às 00:55
+-- Versão do servidor: 8.0.32
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,26 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `filmes`
+-- Estrutura da tabela `filmes`
 --
 
 CREATE TABLE `filmes` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(255) NOT NULL,
+  `id` int NOT NULL,
+  `titulo` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `dataEstreia` date NOT NULL,
-  `genero` varchar(50) DEFAULT NULL,
-  `classificacao` varchar(10) DEFAULT NULL,
-  `duracao` int(11) DEFAULT NULL,
-  `elenco` varchar(255) DEFAULT NULL,
-  `sinopse` varchar(255) DEFAULT NULL,
+  `genero` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `classificacao` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `duracao` int DEFAULT NULL,
+  `elenco` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sinopse` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `avaliacao` float DEFAULT NULL,
-  `produtora` varchar(255) DEFAULT NULL,
-  `paisOrigem` varchar(50) DEFAULT NULL,
-  `idioma` varchar(50) DEFAULT NULL
+  `produtora` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `paisOrigem` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `idioma` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `filmes`
+-- Extraindo dados da tabela `filmes`
 --
 
 INSERT INTO `filmes` (`id`, `titulo`, `dataEstreia`, `genero`, `classificacao`, `duracao`, `elenco`, `sinopse`, `avaliacao`, `produtora`, `paisOrigem`, `idioma`) VALUES
@@ -53,35 +53,35 @@ INSERT INTO `filmes` (`id`, `titulo`, `dataEstreia`, `genero`, `classificacao`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `fotos`
+-- Estrutura da tabela `fotos`
 --
 
 CREATE TABLE `fotos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `caminho` varchar(255) NOT NULL,
-  `tamanho` int(11) NOT NULL,
-  `id_anuncio` int(11) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `caminho` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `tamanho` int NOT NULL,
+  `id_anuncio` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `telefone` varchar(15) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `papel` varchar(15) NOT NULL
+  `id` int NOT NULL,
+  `nome` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `telefone` varchar(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `papel` varchar(15) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `telefone`, `status`, `papel`) VALUES
@@ -92,55 +92,44 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `telefone`, `status`, `p
 --
 
 --
--- Índices de tabela `filmes`
+-- Índices para tabela `filmes`
 --
 ALTER TABLE `filmes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `fotos`
+-- Índices para tabela `fotos`
 --
 ALTER TABLE `fotos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_anuncio` (`id_anuncio`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `usuarios`
+-- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `fotos`
 --
 ALTER TABLE `fotos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `fotos`
---
-ALTER TABLE `fotos`
-  ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`id_anuncio`) REFERENCES `anuncios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
