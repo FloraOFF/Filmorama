@@ -2,10 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('/Filmorama/controladores/rota.php?acao=User')
     .then(response => response.json())
     .then(usuario => {
-        const papelDoUsuario = usuario.papel;
-        console.log(papelDoUsuario);
-        
-        papelConfig(papelDoUsuario);
+        if(usuario === null) {
+            //console.log('lalalalalala')
+            window.location.href = '../visoes/formAutenticar.html';
+            console.log('entrou aqui');
+        } else {
+            const papelDoUsuario = usuario.papel;
+            console.log(papelDoUsuario);
+            
+            papelConfig(papelDoUsuario);
+        }
     });
 });
 
