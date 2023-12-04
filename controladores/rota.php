@@ -42,7 +42,7 @@
                     session_start();
                     $_SESSION['usuario'] = $usuario;
             
-                    header('Location: ../visoes/home.php'); 
+                    header('Location: ../visoes/home.html'); 
 
                 }catch(AutenticarException $erro){
                     echo $erro->getMessage();
@@ -78,7 +78,7 @@
 
                 $filmeControlador = new FilmeControlador();
                 $filmeControlador->salvar($filme);
-                header('Location: ../visoes/mostrarFilmes.php'); 
+                header('Location: ../visoes/mostrarFilmes.html'); 
             break;
         case "mostrarFilmes": 
                 $filmeController = new FilmeControlador();
@@ -93,12 +93,16 @@
             break;
         case "User": 
             session_start();
-            $usuario = new Usuario();
-            $usuario = $_SESSION['usuario'];
+            if (isset($_SESSION['usuario'])) {
+                $usuario = new Usuario();
+                $usuario = $_SESSION['usuario'];
 
-            header('Content-Type: application/json');
-            echo json_encode($usuario);
-
+                header('Content-Type: application/json');
+                echo json_encode($usuario);
+            } else {
+                header('Content-Type: application/json');
+                echo json_encode(null);
+            }
             break;
     }   
 ?>
