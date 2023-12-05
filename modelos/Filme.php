@@ -98,24 +98,43 @@
         }
 
         public function salvar($conn){
-
-            $sql = "INSERT INTO filmes (titulo, dataEstreia, genero, classificacao, duracao, elenco, sinopse, avaliacao, produtora, paisOrigem, idioma)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(1, $this->titulo);
-            $stmt->bindParam(2, $this->dataEstreia);
-            $stmt->bindParam(3, $this->genero);
-            $stmt->bindParam(4, $this->classificacao);
-            $stmt->bindParam(5, $this->duracao);
-            $stmt->bindParam(6, $this->elenco);
-            $stmt->bindParam(7, $this->sinopse);
-            $stmt->bindParam(8, $this->avaliacao);
-            $stmt->bindParam(9, $this->produtora);
-            $stmt->bindParam(10, $this->paisOrigem);
-            $stmt->bindParam(11, $this->idioma);
-            $stmt->execute();
-            $this->id = $conn->lastInsertId();
-            //return $this;
+            if(empty($this->id)) {
+                $sql = "INSERT INTO filmes (titulo, dataEstreia, genero, classificacao, duracao, elenco, sinopse, avaliacao, produtora, paisOrigem, idioma)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(1, $this->titulo);
+                $stmt->bindParam(2, $this->dataEstreia);
+                $stmt->bindParam(3, $this->genero);
+                $stmt->bindParam(4, $this->classificacao);
+                $stmt->bindParam(5, $this->duracao);
+                $stmt->bindParam(6, $this->elenco);
+                $stmt->bindParam(7, $this->sinopse);
+                $stmt->bindParam(8, $this->avaliacao);
+                $stmt->bindParam(9, $this->produtora);
+                $stmt->bindParam(10, $this->paisOrigem);
+                $stmt->bindParam(11, $this->idioma);
+                $stmt->execute();
+                $this->id = $conn->lastInsertId();
+                //return $this;
+            } else {
+                $sql = "UPDATE filmes 
+                SET titulo=?, dataEstreia=?, genero=?, classificacao=?, duracao=?, elenco=?, sinopse=?, avaliacao=?, produtora=?, paisOrigem=?, idioma=? 
+                WHERE id=?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(1, $this->titulo);
+                $stmt->bindParam(2, $this->dataEstreia);
+                $stmt->bindParam(3, $this->genero);
+                $stmt->bindParam(4, $this->classificacao);
+                $stmt->bindParam(5, $this->duracao);
+                $stmt->bindParam(6, $this->elenco);
+                $stmt->bindParam(7, $this->sinopse);
+                $stmt->bindParam(8, $this->avaliacao);
+                $stmt->bindParam(9, $this->produtora);
+                $stmt->bindParam(10, $this->paisOrigem);
+                $stmt->bindParam(11, $this->idioma);
+                $stmt->bindParam(12, $this->id);
+                $stmt->execute();
+            }
         }
 
         public function buscarTodos($conn){
