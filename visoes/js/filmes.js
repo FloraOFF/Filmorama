@@ -1,3 +1,26 @@
+(function(){
+    fetch('/Filmorama/controladores/rota.php?acao=mostrarFilmes')
+    .then(response => response.json())
+    .then(filmes => {
+        for (const filme of filmes) {
+            mostrarFilmes(filme); 
+        }
+    })
+
+    document.addEventListener('click', function (event) {
+        if (event.target.id === 'editar') {
+            event.preventDefault();
+            const idFilme = event.target.getAttribute('data-id');
+            edit(idFilme);
+        } else if (event.target.id ==='deletar') {
+            event.preventDefault();
+            const idFilme = event.target.getAttribute('data-id');
+            delet(idFilme);
+        }
+    });
+    
+})();
+
 function mostrarFilmes (filme) {
     const divShow = document.createElement('div');
     divShow.classList.add("mostrar");
@@ -25,32 +48,9 @@ function mostrarFilmes (filme) {
 const edit = (id) => {
     const urlEdicao = `formEditarFilme.html?idFilme=${id}`;
     //console.log(`Editando...Filme com id ${id}`);
-    window.open(urlEdicao, '_blank');
+    window.open(urlEdicao);
 }
 
 const delet = (id) => {
     console.log(`Deletando...Filme com id ${id}`)
 }
-
-(function(){
-    fetch('/Filmorama/controladores/rota.php?acao=mostrarFilmes')
-    .then(response => response.json())
-    .then(filmes => {
-        for (const filme of filmes) {
-            mostrarFilmes(filme); 
-        }
-    })
-
-    document.addEventListener('click', function (event) {
-        if (event.target.id === 'editar') {
-            event.preventDefault();
-            const idFilme = event.target.getAttribute('data-id');
-            edit(idFilme);
-        } else if (event.target.id ==='deletar') {
-            event.preventDefault();
-            const idFilme = event.target.getAttribute('data-id');
-            delet(idFilme);
-        }
-    });
-    
-})();

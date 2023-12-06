@@ -7,12 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
         // Agora você pode usar esse valor para carregar os dados do filme e preencher o formulário de edição
         console.log(`Editando... Filme com id ${idFilme}`);
 
-        // Exemplo: Fetch dos dados do filme
-        fetch(`/Filmorama/controladores/rota.php?acao=obterFilme&id=${idFilme}`)
+        fetch('/Filmorama/controladores/rota.php?acao=mostrarFilmes')
             .then(response => response.json())
-            .then(filme => {
+            .then(filmes => {
                 // Agora você pode usar os dados do filme para preencher o formulário de edição
-                preencherFormularioEdicao(filme);
+                filmes.forEach(filme => {
+                    console.log (filme.id);
+                    if (filme.id === parseInt(idFilme)) {
+                        preencherFormularioEdicao(filme);
+                    }
+                });
             })
             .catch(error => {
                 console.error('Erro ao obter dados do filme:', error);
@@ -24,9 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function preencherFormularioEdicao(filme) {
+    console.log (filme);
     // Aqui você implementaria a lógica para preencher o formulário de edição
     // por exemplo:
-    document.getElementById('titulo').value = filme.titulo;
-    document.getElementById('dataEstreia').value = filme.dataEstreia;
+    // document.getElementById('titulo').value = filme.titulo;
+    // document.getElementById('dataEstreia').value = filme.dataEstreia;
     // Preencher outros campos conforme necessário
 }
