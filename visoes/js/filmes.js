@@ -15,11 +15,19 @@ function mostrarFilmes (filme) {
     <p>Pais de Origem: ${filme.paisOrigem}</p>
     <p>Idioma: ${filme.idioma}</p>
     <div class="config">
-        <a href="#" id="editar">Editar</a>
-        <a href="#" id="deletar">Deletar</a>
+        <a href="#" id="editar" data-id="${filme.id}">Editar</a>
+        <a href="#" id="deletar" data-id="${filme.id}">Deletar</a>
     </div>`
 
     document.body.appendChild(divShow);
+}
+
+const edit = (id) => {
+    console.log(`Editando...Filme com id ${id}`);
+}
+
+const delet = (id) => {
+    console.log(`Deletando...Filme com id ${id}`)
 }
 
 (function(){
@@ -27,7 +35,20 @@ function mostrarFilmes (filme) {
     .then(response => response.json())
     .then(filmes => {
         for (const filme of filmes) {
-            mostrarFilmes(filme);
+            mostrarFilmes(filme); 
         }
     })
+
+    document.addEventListener('click', function (event) {
+        if (event.target.id === 'editar') {
+            event.preventDefault();
+            const idFilme = event.target.getAttribute('data-id');
+            edit(idFilme);
+        } else if (event.target.id ==='deletar') {
+            event.preventDefault();
+            const idFilme = event.target.getAttribute('data-id');
+            delet(idFilme);
+        }
+    });
+    
 })();
