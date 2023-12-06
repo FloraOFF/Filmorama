@@ -23,7 +23,9 @@ function mostrarFilmes (filme) {
 }
 
 const edit = (id) => {
-    console.log(`Editando...Filme com id ${id}`);
+    const urlEdicao = `formEditarFilme.html?idFilme=${id}`;
+    //console.log(`Editando...Filme com id ${id}`);
+    window.open(urlEdicao, '_blank');
 }
 
 const delet = (id) => {
