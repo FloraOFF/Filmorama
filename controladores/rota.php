@@ -51,6 +51,7 @@
 
             break;
         case "salvarFilme":
+                $id = $_POST['idFilme'];
                 $titulo = $_POST['titulo'];
                 $dataEstreia = $_POST['dataEstreia'];
                 $genero = $_POST['genero'];
@@ -64,6 +65,11 @@
                 $idioma = $_POST['idioma'];
                
                 $filme = new Filme();
+
+                if (!empty($id)) {
+                    $filme->setId($id);
+                }
+                
                 $filme->setTitulo($titulo);
                 $filme->setDataEstreia($dataEstreia);
                 $filme->setGenero($genero);

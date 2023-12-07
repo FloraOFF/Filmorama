@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Agora você pode usar os dados do filme para preencher o formulário de edição
                 filmes.forEach(filme => {
                     console.log (filme.id);
-                    if (filme.id === parseInt(idFilme)) {
+                    if (parseInt(filme.id) === parseInt(idFilme)) {
                         preencherFormularioEdicao(filme);
+                        console.log (filme);
                     }
                 });
             })
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function preencherFormularioEdicao(filme) {
-    console.log (filme);
+    console.log (filme.classificacao);
     // Aqui você implementaria a lógica para preencher o formulário de edição
     // por exemplo:
     // const form = document.querySelector('form');
@@ -41,5 +42,6 @@ function preencherFormularioEdicao(filme) {
     document.getElementById('produtora').value = filme.produtora;
     document.getElementById('paisOrigem').value = filme.paisOrigem;
     document.getElementById('idioma').value = filme.idioma;
+    document.getElementById('idFilme').value = filme.id;
     //Preencher outros campos conforme necessário
 }
