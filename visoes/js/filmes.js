@@ -48,7 +48,7 @@ function mostrarFilmes (filme) {
 const edit = (id) => {
     const urlEdicao = `formEditarFilme.html?idFilme=${id}`;
     //console.log(`Editando...Filme com id ${id}`);
-    window.open(urlEdicao);
+    window.location.href = urlEdicao;
 }
 
 const delet = (id) => {

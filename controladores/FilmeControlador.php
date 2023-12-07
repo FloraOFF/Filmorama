@@ -27,6 +27,14 @@
             $filme = new Filme();
             return $filme->buscarTodos($conn);
         }
+
+        public function delete() {
+            $conexao = new Conexao();
+            $conn = $conexao->getConexao(); 
+
+            $filme = new Filme();
+            return $filme->delete($conn);
+        }
     }
 
 ?>

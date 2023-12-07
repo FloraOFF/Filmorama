@@ -162,7 +162,14 @@
                 array_push($listaFilmes,$filme);
             }
             return  $listaFilmes;
-       }
+        }
+
+        public function delete($conn) {
+            $sql = "DELETE FROM filmes WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(1, $this->id);
+            $stmt->execute();
+        }
 
         public function jsonSerialize() {
             return [
