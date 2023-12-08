@@ -13,9 +13,9 @@
                 $conn = $conexao->getConexao();               
                 $filme->salvar($conn);
         
-                echo "New record created successfully";
+                echo "Novo filme adicionado com sucesso";
             } catch(PDOException $e) {
-                echo "<br>" . $e->getMessage();
+                echo "Erro ao adicionar filme:" . $e->getMessage();
             }
         
         }
@@ -28,12 +28,19 @@
             return $filme->buscarTodos($conn);
         }
 
-        public function delete() {
+        public function delete($id) {
             $conexao = new Conexao();
             $conn = $conexao->getConexao(); 
 
-            $filme = new Filme();
-            return $filme->delete($conn);
+            try {
+                $filme = new Filme();
+                $filme->setId($id);
+                return $filme->delete($conn);
+                echo "Filme deletado com sucesso!";
+            } catch(PDOException $e) {
+                echo "Erro ao deletar filme: " . $e->getMessage();
+            }
+
         }
     }
 

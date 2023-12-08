@@ -97,6 +97,16 @@
                 echo json_encode($filmes, JSON_UNESCAPED_UNICODE);
 
             break;
+        case "deletarFilme": 
+            $idFilme = $_GET['idFilme'];
+            $filmeController = new FilmeControlador();
+            $filmes = $filmeController->delete($idFilme);
+
+            //var_dump($filme);
+            //echo "<br>";
+            //var_dump($filmes);
+            header('Location: ../visoes/mostrarFilmes.html'); 
+            break;
         case "User": 
             session_start();
             if (isset($_SESSION['usuario'])) {

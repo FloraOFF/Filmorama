@@ -52,5 +52,17 @@ const edit = (id) => {
 }
 
 const delet = (id) => {
-    console.log(`Deletando...Filme com id ${id}`)
+    console.log(`Deletando...Filme com id ${id}`);
+    if(confirm('Deseja realmente deletar esse filme?')){
+        const urlDelecao = `/Filmorama/controladores/rota.php?acao=deletarFilme&idFilme=${id}`
+        fetch(urlDelecao, {method: 'GET'})
+        .then(response => {
+            if(response.ok) {
+                window.location.reload();
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao deletar filme:', error);
+        });
+    }
 }
