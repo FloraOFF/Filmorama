@@ -120,5 +120,12 @@
                 echo json_encode(null);
             }
             break;
+        case "Logout":
+            session_start();
+
+        // Encerrar a sessão
+        session_unset();
+        session_destroy();
+            break;
     }   
 ?>

@@ -22,7 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         console.log(usuario);
-        
+        const logOut = document.querySelector('button');
+        logOut.addEventListener('click', () => {
+            fetch('Filmorama/../../controladores/rota.php?acao=Logout')
+            .then(
+                console.log (usuario)
+                // window.location.href = '../../index.html'
+            );
+        })
         //papelConfig(papelDoUsuario);
     });
 });
