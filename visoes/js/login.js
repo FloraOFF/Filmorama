@@ -13,8 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if(usuario.papel === 'Comum') {
                 console.log ('Entrou aqui')
                 const actionsUser = document.querySelector('div#actionsUser');
+                const cadastrar = document.querySelector('div#actionsUser > a');
                 let addAdmin = document.createElement('button');
                 addAdmin.textContent = 'Virar Adm';
+                cadastrar.style.display = 'none';
                 actionsUser.appendChild(addAdmin);
             }
         }
