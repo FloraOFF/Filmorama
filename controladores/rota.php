@@ -122,10 +122,9 @@
             break;
         case "Logout":
             session_start();
-
-        // Encerrar a sessão
-        session_unset();
-        session_destroy();
+            session_unset();
+            session_destroy();
+            header('HTTP/1.1 200 OK');
             break;
     }   
 ?>

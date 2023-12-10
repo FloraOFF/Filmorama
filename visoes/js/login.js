@@ -9,25 +9,29 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             let welcome = document.querySelector('h1#welcome');
             welcome.innerHTML = `Bem vindo! ${usuario.nome}`;
+            const cadastrar = document.querySelector('div#actionsUser > a');
 
             if(usuario.papel === 'Comum') {
                 console.log ('Entrou aqui')
                 const actionsUser = document.querySelector('div#actionsUser');
-                const cadastrar = document.querySelector('div#actionsUser > a');
                 let addAdmin = document.createElement('button');
                 addAdmin.textContent = 'Virar Adm';
-                cadastrar.style.display = 'none';
                 actionsUser.appendChild(addAdmin);
+            } else {
+                cadastrar.style.visibility = 'visible';
             }
         }
 
-        console.log(usuario);
+        //console.log(usuario);
         const logOut = document.querySelector('button');
         logOut.addEventListener('click', () => {
             fetch('Filmorama/../../controladores/rota.php?acao=Logout')
-            .then(
-                console.log (usuario)
-                // window.location.href = '../../index.html'
+            .then(response => {
+                    if(response.ok) {
+                        console.log("Logout bem-sucedido");
+                        window.location.reload();
+                    }
+                }
             );
         })
         //papelConfig(papelDoUsuario);
