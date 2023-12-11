@@ -1,3 +1,49 @@
 div#actionsUser > a#cadastrar {
-    visibility: hidden;
+    display: none;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-repeat: repeat;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/netflix-library.webp);
+}
+
+html, body {
+    height: 100%;
+}
+
+div#action {
+    margin: 1em;
+    padding: 2em;
+    background-image: linear-gradient(rgba(184, 184, 184), rgba(223, 222, 222, 0.685));
+    border-radius: 1em
+}
+
+button, div#actionsUser a{
+    color: aliceblue;
+    border: 1px;
+    font-size: 16px;
+    padding: 9px 16px;
+    background-color: #cc2229;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;    
+    text-decoration: none;
+}
+div#actionsUser a:hover{
+    transition: all 0.5s ease;
+    background-color: rgb(61, 10, 10);
+}
+
+button#logout {
+    background-color: #140908;
+}
+
+button#logout:hover{
+    transition: all 0.5s ease;
+    background-color: rgb(122, 107, 107);
 }

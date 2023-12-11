@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 addAdmin.textContent = 'Virar Adm';
                 actionsUser.appendChild(addAdmin);
             } else {
-                cadastrar.style.visibility = 'visible';
+                cadastrar.style.display = 'inline-block';
             }
         }
 
