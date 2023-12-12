@@ -9,6 +9,7 @@ require_once "../excecoes/AutenticarException.php";
         private $email;
         private $senha;
         private $papel;
+        private $loginTime;
 
         public function getId(){
             return $this->id;
@@ -50,6 +51,13 @@ require_once "../excecoes/AutenticarException.php";
         }
         public function setPapel($papel){
             $this->papel = $papel;
+        }
+
+        public function getLoginTime(){
+            return $this->loginTime;
+        }
+        public function setLoginTime($loginTime){
+            $this->loginTime = $loginTime;
         }
     
         public function autenticar($conn){
@@ -113,7 +121,8 @@ require_once "../excecoes/AutenticarException.php";
                 'nome' => $this->nome,
                 'telefone' => $this->telefone,
                 'email' => $this->email,
-                'papel' => $this->papel
+                'papel' => $this->papel,
+                'tempo' => $this->loginTime
             ];
         }
 

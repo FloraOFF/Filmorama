@@ -40,6 +40,7 @@
                     $usuario = $usuarioControlador->autenticar($usuario);
 
                     session_start();
+                    $_SESSION['login_time'] = time();
                     $_SESSION['usuario'] = $usuario;
             
                     header('Location: ../visoes/home.html'); 
@@ -110,8 +111,27 @@
         case "User": 
             session_start();
             if (isset($_SESSION['usuario'])) {
+                if (isset($_SESSION['login_time'])) {
+                    // Tempo limite em segundos (30 minutos neste exemplo)
+                    $tempoLimite = 24 * 60 * 60;
+
+                    // Verifique se o tempo decorrido é maior do que o limite
+                    if (time() - $_SESSION['login_time'] > $tempoLimite) {
+                        // Sessão expirada, limpe a sessão e retorne nulo
+                        session_unset();
+                        session_destroy();
+                        header('Content-Type: application/json');
+                        echo json_encode(null);
+                        exit;
+                    } else {
+                        // Atualize o timestamp da última atividade
+                        $_SESSION['login_time'] = time();
+                    }
+                }
+                
                 $usuario = new Usuario();
                 $usuario = $_SESSION['usuario'];
+                $usuario->setLoginTime($_SESSION['login_time']);
 
                 header('Content-Type: application/json');
                 echo json_encode($usuario);
