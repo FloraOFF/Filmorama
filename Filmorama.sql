@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/12/2023 às 18:28
+-- Tempo de geração: 13/12/2023 às 17:56
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -47,8 +47,8 @@ CREATE TABLE `filmes` (
 --
 
 INSERT INTO `filmes` (`id`, `titulo`, `dataEstreia`, `genero`, `classificacao`, `duracao`, `elenco`, `sinopse`, `avaliacao`, `produtora`, `paisOrigem`, `idioma`) VALUES
-(5, 'Teste', '2022-03-03', 'Teste', '14', 2, 'Teste', 'TesteTesteTesteTesteTesteTesteTesteTeste', 3.9, 'Teste', 'Teste', 'Teste'),
-(6, 'The Batman', '2022-03-03', 'Drama/Ação', '14', 2, 'Robert Pattinson, Zoë Kravitz, Paul Dano, Colin Farrell, Jeffrey Wright, Andy Serkis', 'Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.', 3.9, 'DC e Warner Bros.', 'Reino Unido', 'Inglês');
+(6, 'The Batman', '2022-03-03', 'Drama/Ação', '14', 2, 'Robert Pattinson, Zoë Kravitz, Paul Dano, Colin Farrell, Jeffrey Wright, Andy Serkis', 'Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.', 3.9, 'DC e Warner Bros.', 'Reino Unido', 'Inglês'),
+(7, 'Teste', '2022-03-03', 'Teste', '14', 2, 'Teste', 'TesteTesteTesteTesteTesteTesteTesteTeste', 3.9, 'Teste', 'Teste', 'Teste');
 
 -- --------------------------------------------------------
 
@@ -59,9 +59,7 @@ INSERT INTO `filmes` (`id`, `titulo`, `dataEstreia`, `genero`, `classificacao`, 
 CREATE TABLE `fotos` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `caminho` varchar(255) NOT NULL,
-  `tamanho` int(11) NOT NULL,
-  `id_anuncio` int(11) NOT NULL
+  `conteudo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -85,7 +83,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `telefone`, `status`, `papel`) VALUES
-(12, 'Atumalaca', 'atumalaca@gmail.com', '$2y$10$th4o8uCWCZH1MwU19w0BJOvPEdonO8RwpXlyrGxf61RVVEW22My8y', '64875985', 1, 'Admin');
+(12, 'Atumalaca', 'atumalaca@gmail.com', '$2y$10$th4o8uCWCZH1MwU19w0BJOvPEdonO8RwpXlyrGxf61RVVEW22My8y', '64875985', 1, 'Admin'),
+(13, 'teste', 'teste@gmail.com', '$2y$10$4N4XnRp1kTXsjTl8MC.BA.Gwt7MQRnhbj7mAk79u0lYUDMNPZOxFi', '(68) 3668-1584', 1, 'Comum');
 
 --
 -- Índices para tabelas despejadas
@@ -101,8 +100,7 @@ ALTER TABLE `filmes`
 -- Índices de tabela `fotos`
 --
 ALTER TABLE `fotos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_anuncio` (`id_anuncio`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `usuarios`
@@ -118,7 +116,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `fotos`
@@ -130,7 +128,7 @@ ALTER TABLE `fotos`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para tabelas despejadas
@@ -139,9 +137,6 @@ ALTER TABLE `usuarios`
 --
 -- Restrições para tabelas `fotos`
 --
-ALTER TABLE `fotos`
-  ADD CONSTRAINT `fotos_ibfk_1` FOREIGN KEY (`id_anuncio`) REFERENCES `anuncios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
