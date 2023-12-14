@@ -17,12 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const papelConfig = (papel) => {
     const ElementosDivMostrar = document.querySelectorAll('div.mostrar div.config')
-
-    ElementosDivMostrar.forEach(divMostrar => {
-        if (papel === 'Admin') {
+    
+    if (papel === 'Admin') {
+        ElementosDivMostrar.forEach(divMostrar => {
+            //if (papel === 'Admin') {
             divMostrar.style.display = "block"; 
-        } else {
+        });
+    } else {
+            ElementosDivMostrar.forEach(divMostrar => {
             divMostrar.style.display = "none"; 
-        }
-    });
+        });
+    }    
 }
