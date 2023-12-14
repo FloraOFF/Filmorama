@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         window.location.href = './home.html';
                     }
                 })
+
+                const url = window.location.href;
+
+                if (url.includes('/Filmorama/visoes/formCadastrarFilme.html') || url.includes('/Filmorama/visoes/formEditarFilme.html')) {
+                    if (usuario.tipo != 'Admin') {
+                        window.location.href = './home.html';
+                    } 
+                }
             } 
         } else {    
             console.log ('Não tem usuário');
