@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const url = window.location.href;
 
                 if (url.includes('/Filmorama/visoes/formCadastrarFilme.html') || url.includes('/Filmorama/visoes/formEditarFilme.html')) {
-                    if (usuario.tipo != 'Admin') {
+                    if (usuario.papel != 'Admin') {
                         window.location.href = './home.html';
                     } 
                 }
